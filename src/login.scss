@@ -1,0 +1,55 @@
+.logo-img {
+    text-align: center;
+    margin-top: 40px;
+}
+img {
+    width: 100px; 
+    height: 100px;
+}
+h1 {
+    text-align: center;
+    margin: 40px auto;
+    font-size: 3.5rem;
+}
+.inputEmail, .inputPw, .logInBtn {
+    margin: 0 auto;
+}
+.inputEmail {
+    display: block;
+    width: 50%;
+    height: 60px;
+    padding: 10px;
+    
+    font-size: 1.5rem;
+    border: none;
+    border-bottom: solid 3px gray;
+    background-color: whitesmoke
+}
+.inputEmailNoti {
+    width: 50%;
+    margin: 0 auto;
+    color: red;
+    font-weight: bold;
+}
+.inputPw {
+    display: block;
+    width: 50%;
+    height: 60px;
+    padding: 10px;
+    margin-bottom: 40px;
+    font-size: 1.5rem;
+    border: none;
+    border-bottom: solid 3px gray;
+    background-color: whitesmoke
+}
+.logInBtn {
+     display: block;
+     width: 50%;
+     height: 70px;
+     border-radius: 40px;
+     border: 1px;
+     color: white;
+     background-color: gray;
+     font-size: 2rem;
+     padding: 10px;
+}
