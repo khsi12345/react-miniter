@@ -50,80 +50,86 @@ import AddTweet from './component/AddTweet';
 // }
 
 class Tweet extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            text: '',
-            items: [
-            ]
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: '',
+      items: [
+      ]
     }
-    
-    handleInputText = (e) => {
-        this.setState({
-            text: e.target.value,
-        })
-        
-    }
+  }
 
-    handleCreate = (data) => {
-        // console.log(data)
-        // console.log(this.state.text)
-        // const {tweet} = this.state;
-        // this.state.items.push({id: 0, name: '', textValue: this.state.text})
-        // // this.state.items.concat({id:0, name:'', textValue: this.state.text})
-        // this.setState({
-        //     items: this.state.items
-        // })
-        // console.log(this.state.items)
-    }
+  handleInputText = (e) => {
+    this.setState({
+      text: e.target.value,
+    })
 
-    handleAddTweet = (e) => {
-        
+  }
+
+  handleCreate = (data) => {
+    // console.log(data)
+    // console.log(this.state.text)
+    // const {tweet} = this.state;
+    // this.state.items.push({id: 0, name: '', textValue: this.state.text})
+    // // this.state.items.concat({id:0, name:'', textValue: this.state.text})
+    // this.setState({
+    //     items: this.state.items
+    // })
+    // console.log(this.state.items)
+  }
+
+  handleAddTweet = (e) => {
+
     this.state.items.push({id: 0, name: '', textValue: this.state.text})
     this.setState({
-          items: this.state.items
-        })
+      items: this.state.items
+    })
     this.setState({
-          text: ''
-        })
+      text: ''
+    })
     // this.state.items.text = '';
-        console.log(this.state.items)
-    }
-    
-    render() {
-        // const {items} = this.state.item; 
-        // console.log(items)
-        return(
-            <div id="contain">
-            <div className="sideView">
-              <div className="emptyDiv"></div>
-              <div className="tweetInfoBox">
-                <div className="tweetInfo userName">SeongHo Yang</div>
-                <span className="tweetInfo">Tweets</span>
-                <span className="tweetInfo tweetCount"></span>
-              </div>
-            </div>
-            <div className="mainView">
-              <textarea placeholder="what's happening?" className="textBox"  ref = {input => this.newItem = input} value = {this.state.text} onChange = {this.handleInputText}></textarea>
-              <div className="textInfo">
-                <span className="curTextLength"></span>
-                <span className="maxTextLength"></span>
-              </div>
-              <input type="button" ref ={ input => this.clear = input} value="Tweet" className="addTweetButton" onClick = {this.handleAddTweet}/>
-            </div>
-            {/* <AddTweet onCreate = {this.handleAddTweet}/> */}
-            <ul className="tweetContain">
-               { this.state.items.map( (tweet, name) => {
-                    return (
-                        <li key = {name}>{tweet.textValue}</li>
-                    )
-                })
-                }
-            </ul>
+    console.log(this.state.items)
+  }
+
+  render() {
+    // const {items} = this.state.item;
+    // console.log(items)
+    return(
+      <div className="tweet-page">
+        <div className="sideView">
+          <div className="emptyDiv"></div>
+          <div className="tweetInfoBox">
+            <div className="tweetInfo userName">SeongHo Yang</div>
+            <span className="tweetInfo">Tweets</span>
+            <span className="tweetInfo tweetCount"></span>
           </div>
-        )
-    }
+        </div>
+        <div className="mainView">
+          <textarea placeholder="what's happening?" className="textBox"  ref = {input => this.newItem = input} value = {this.state.text} onChange = {this.handleInputText}></textarea>
+          <div className="textInfo">
+            <span className="curTextLength"></span>
+            <span className="maxTextLength"></span>
+          </div>
+          <input
+            type="button"
+            ref ={ input => this.clear = input}
+            value="Tweet"
+            className="addTweetButton"
+            onClick = {this.handleAddTweet}
+          />
+        </div>
+        {/* <AddTweet onCreate = {this.handleAddTweet}/> */}
+        <ul className="tweetContain">
+          { this.state.items.map( (tweet, name) => {
+            return (
+              <li key = {name}>{tweet.textValue}</li>
+            )
+          })
+          }
+        </ul>
+      </div>
+    )
+  }
 }
 
 export default Tweet;

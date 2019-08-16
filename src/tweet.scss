@@ -1,4 +1,5 @@
-#contain {
+.tweet-page {
+  #contain {
     position: absolute;
     padding: 20px 10px;
     background-color: aliceblue;
@@ -13,10 +14,10 @@
     overflow: hidden;
   }
   .emptyDiv {
-  width: 100%;
-  height: 100px;
-  margin: 0;
-  background-color: blueviolet;
+    width: 100%;
+    height: 100px;
+    margin: 0;
+    background-color: blueviolet;
   }
   .tweetInfoBox {
     background-color: white;
@@ -59,7 +60,7 @@
     left: 77%;
   }
   .curTextLength, .maxTextLength {
-   margin-left: 20px;
+    margin-left: 20px;
   }
   .addTweetButton {
     /* position:absolute; */
@@ -84,14 +85,15 @@
     left: 75%;
     width:50%;
   }
-  
+
   h5 {
     margin: 0;
   }
-  
+
   li {
     list-style: none;
     padding: 10px;
     margin: 5px 0;
     background-color: beige;
   }
+}

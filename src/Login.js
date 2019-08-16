@@ -23,57 +23,69 @@ import { timingSafeEqual } from 'crypto';
 //     </div>
 //   );
 // }
- class Login extends React.Component{
+class Login extends React.Component{
   // infoStyle = {display: 'none'}
-   constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       email: '',
       pw: '',
     }
-   }
+  }
 
+  componentDidMount() {
+    console.log('마운트')
+  }
+  componentDidUpdate() {
+    console.log('업데이트')
+  }
 
-   componentDidMount() {
-     console.log('마운트')
-   }
-   componentDidUpdate() {
-     console.log('업데이트')
-   }
-  
-   handleInputEmail = (e) => {
+  handleInput = (e) => {
     this.setState({
-      email: e.target.value,
+      [e.target.name]: e.target.value,
     })
   }
-   handleInputPw = (e) => {
-     this.setState({
-      pw: e.target.value,
-      })
-   }
-  
-    render() {
-      return (
-        <div>
-          <div className="logo-img">
-            <img src="https://upload.wikimedia.org/wikipedia/ko/thumb/9/9e/%ED%8A%B8%EC%9C%84%ED%84%B0_%EB%A1%9C%EA%B3%A0_%282012%29.svg/1200px-%ED%8A%B8%EC%9C%84%ED%84%B0_%EB%A1%9C%EA%B3%A0_%282012%29.svg.png" alt="트위터 로고 이미지"/>
-          </div>
-          <h1>Log in to Twitter</h1>
-          <input type="text" placeholder="Phone, email, or username" className="inputEmail" onChange = {this.handleInputEmail}/>
-         
-          {/* email, PhoneNumber 입력하면 입력창 밑 경고를 없애주는 로직 */}
-          {/* {!this.state.email && 
+
+  render() {
+    console.log('render')
+    return (
+      <div>
+        <div className="logo-img">
+          <img src="https://upload.wikimedia.org/wikipedia/ko/thumb/9/9e/%ED%8A%B8%EC%9C%84%ED%84%B0_%EB%A1%9C%EA%B3%A0_%282012%29.svg/1200px-%ED%8A%B8%EC%9C%84%ED%84%B0_%EB%A1%9C%EA%B3%A0_%282012%29.svg.png" alt="트위터 로고 이미지"/>
+        </div>
+        <h1>Log in to Twitter</h1>
+        <input
+          name="email"
+          type="text"
+          placeholder="Phone, email, or username"
+          className="inputEmail"
+          onChange = {this.handleInput}
+        />
+
+        {/* email, PhoneNumber 입력하면 입력창 밑 경고를 없애주는 로직 */}
+        {/* {!this.state.email &&
             <p className="inputEmailNoti">*Phone Number 또는 Email을 입력하세요.</p>
           } */}
-          {this.state.email ? (<p style={{marginBottom: 23+'px'}}></p>) : (<p className="inputEmailNoti">*Phone Number 또는 Email을 입력하세요.</p>)}
-          <input type="text" placeholder="Password" className="inputPw" onChange = {this.handleInputPw}/>
+        {this.state.email ? (
+           <p style={{ marginBottom: 23+'px' }}></p>
+          ) : (
+            <p className="inputEmailNoti">*Phone Number 또는 Email을 입력하세요.</p>
+          )
+        }
+        <input
+          name="pw"
+          type="text"
+          placeholder="Password"
+          className="inputPw"
+          onChange = {this.handleInput}
+        />
 
-          {(this.state.email && this.state.pw) ? <button className="logInBtn" style={{backgroundColor: 'deepskyblue'}}>Log in</button> : 
-            <button className="logInBtn">Log in</button>}
-          {/* <button className="logInBtn">Log in</button> */}
-        </div>
-      );
-    }
- }
+        {(this.state.email && this.state.pw) ? <button className="logInBtn" style={{backgroundColor: 'deepskyblue'}}>Log in</button> :
+          <button className="logInBtn">Log in</button>}
+        {/* <button className="logInBtn">Log in</button> */}
+      </div>
+    );
+  }
+}
 
 export default Login;
