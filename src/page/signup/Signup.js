@@ -1,6 +1,8 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './signup.scss';
+import LoginInput from '../../component/LoginInput';
+import Button from '../../component/Button';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -13,57 +15,43 @@ class Signup extends React.Component {
     };
   }
 
-    handleInputEmail = (e) => {
+    handleSignUpInput = (e) => {
       this.setState({
-        email: e.target.value,
+        [e.target.name]: e.target.value,
       });
     }
 
-    handleInputName = (e) => {
-      this.setState({
-        name: e.target.value,
-      });
-    }
-
-    handleInputPw = (e) => {
-      this.setState({
-        pw: e.target.value,
-      });
-    }
-
-    handleInputProfile = (e) => {
-      this.setState({
-        profile: e.target.value,
-      });
-    }
 
     render() {
+      const {
+        email, name, pw, profile,
+      } = this.state;
       return (
         <div className="Signup-page">
           <h1>Sign up to Miniter</h1>
-          <input type="text" placeholder="Enter ID or Enter Email" className="signInputID getDom" onChange={this.handleInputEmail} />
-          {this.state.email
+          <LoginInput type="text" name="email" placeholder="Enter ID or Enter Email" className="signInputID getDom" onChange={this.handleSignUpInput} />
+          {email
             ? (<p style={{ marginBottom: `${23}px` }} />)
             : (<p className="signInputIDNoti noti">ID 또는 Email을 입력해주세요.</p>)}
 
-          <input type="text" placeholder="Enter Name" className="signInputName getDom" onChange={this.handleInputName} />
-          {this.state.name
+          <LoginInput type="text" name="name" placeholder="Enter Name" className="signInputName getDom" onChange={this.handleSignUpInput} />
+          {name
             ? (<p style={{ marginBottom: `${23}px` }} />)
             : (<p className="signInputNameNoti noti">Name을 입력해주세요.</p>)}
 
-          <input type="text" placeholder="Password" className="signInputPw getDom" onChange={this.handleInputPw} />
-          {this.state.pw
+          <LoginInput type="text" name="pw" placeholder="Password" className="signInputPw getDom" onChange={this.handleSignUpInput} />
+          {pw
             ? (<p style={{ marginBottom: `${23}px` }} />)
             : (<p className="signInputPwNoti noti">Password를 입력해주세요.</p>)}
 
-          <input type="text" placeholder="Enter Profile" className="signInputProfile getDom" onChange={this.handleInputProfile} />
-          {this.state.profile
+          <LoginInput type="text" name="profile" placeholder="Enter Profile" className="signInputProfile getDom" onChange={this.handleSignUpInput} />
+          {profile
             ? (<p style={{ marginBottom: `${23}px` }} />)
             : (<p className="signInputProfileNoti noti">Profile을 입력해주세요.</p>)}
 
-          {(this.state.email && this.state.name && this.state.pw && this.state.profile)
-            ? ((<button className="signUpBtn" style={{ backgroundColor: 'deepskyblue' }}>Sign up</button>))
-            : (<button className="signUpBtn">Sign up</button>)}
+          {(email && name && pw && profile)
+            ? ((<Button type="submit" className="signUpBtn" style={{ backgroundColor: 'deepskyblue' }} name="SignUp" />))
+            : (<Button type="submit" className="signUpBtn" name="SignUp" />)}
 
 
         </div>

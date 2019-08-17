@@ -1,6 +1,8 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './login.scss';
+import LoginInput from '../../component/LoginInput';
+import Button from '../../component/Button';
 
 // function App() {
 //   return (
@@ -33,28 +35,23 @@ class Login extends React.Component {
     };
   }
 
-  componentDidMount() {
-    console.log('마운트');
-  }
+  // componentDidMount() {
+  //   console.log('마운트');
+  // }
 
-  componentDidUpdate() {
-    console.log('업데이트');
-  }
+  // componentDidUpdate() {
+  //   console.log('업데이트');
+  // }
 
-  handleInputEmail = (e) => {
+  handleLogInInput = (e) => {
     this.setState({
-      email: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
-  handleInputPw = (e) => {
-    this.setState({
-      pw: e.target.value,
-    });
-  };
 
   render() {
-    const { email } = this.state;
+    const { email, pw } = this.state;
     return (
       <div className="Login-page">
         <div className="logo-img">
@@ -64,12 +61,20 @@ class Login extends React.Component {
           />
         </div>
         <h1>Log in to Twitter</h1>
-        <input
+        <LoginInput
           type="text"
+          name="email"
           placeholder="Phone, email, or username"
           className="inputEmail"
-          onChange={this.handleInputEmail}
+          onChange={this.handleLogInInput}
         />
+        {/* <input
+          type="text"
+          name="email"
+          placeholder="Phone, email, or username"
+          className="inputEmail"
+          onChange={this.handleLogInInput}
+        /> */}
 
         {/* email, PhoneNumber 입력하면 입력창 밑 경고를 없애주는 로직 */}
         {/* {!this.state.email &&
@@ -82,24 +87,34 @@ class Login extends React.Component {
             *Phone Number 또는 Email을 입력하세요.
           </p>
         )}
-        <input
-          type="text"
+        <LoginInput
+          type="password"
+          name="pw"
           placeholder="Password"
           className="inputPw"
-          onChange={this.handleInputPw}
+          onChange={this.handleLogInInput}
         />
+        {/* <input
+          type="text"
+          name="pw"
+          placeholder="Password"
+          className="inputPw"
+          onChange={this.handleLogInInput}
+        /> */}
 
-        {this.state.email && this.state.pw ? (
-          <button
+        {email && pw ? (
+          <Button
+            type="submit"
             className="logInBtn"
             style={{ backgroundColor: 'deepskyblue' }}
-          >
-            Log in
-          </button>
+            name="Login"
+          />
+
+
         ) : (
-          <button className="logInBtn">Log in</button>
+          <Button type="submit" className="logInBtn" name="Login" />
+
         )}
-        {/* <button className="logInBtn">Log in</button> */}
       </div>
     );
   }

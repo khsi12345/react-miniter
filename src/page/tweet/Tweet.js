@@ -1,5 +1,7 @@
 import React from 'react';
 import './tweet.scss';
+// import '../../component/UserInfo';
+import UserrInfo from '../../component/UserInfo';
 // import AddTweet from './AddTweet';
 
 // import { ReactComponent } from '*.svg';
@@ -51,6 +53,7 @@ class Tweet extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: 'Seongho Yang',
       text: '',
       items: [
       ],
@@ -64,25 +67,25 @@ class Tweet extends React.Component {
       });
     }
 
-    handleCreate = (data) => {
-      // console.log(data)
-      // console.log(this.state.text)
-      // const {tweet} = this.state;
-      // this.state.items.push({id: 0, name: '', textValue: this.state.text})
-      // // this.state.items.concat({id:0, name:'', textValue: this.state.text})
-      // this.setState({
-      //     items: this.state.items
-      // })
-      // console.log(this.state.items)
-    }
+    // handleCreate = (data) => {
+    //   // console.log(data)
+    //   // console.log(this.state.text)
+    //   // const {tweet} = this.state;
+    //   // this.state.items.push({id: 0, name: '', textValue: this.state.text})
+    //   // // this.state.items.concat({id:0, name:'', textValue: this.state.text})
+    //   // this.setState({
+    //   //     items: this.state.items
+    //   // })
+    //   // console.log(this.state.items)
+    // }
 
-    handleAddTweet = (e) => {
-      this.state.items.push({ id: 0, name: '', textValue: this.state.text });
+    handleAddTweet = () => {
+      const { text, items } = this.state;
+      items.push({ id: 0, name: '', textValue: text });
       this.setState({
-        items: this.state.items,
+        items,
         text: '',
       });
-    //     console.log(this.state.items)
     }
 
     render() {
@@ -93,14 +96,7 @@ class Tweet extends React.Component {
       return (
         <div className="Tweet-page">
           <div id="contain">
-            <div className="sideView">
-              <div className="emptyDiv" />
-              <div className="tweetInfoBox">
-                <div className="tweetInfo userName">SeongHo Yang</div>
-                <span className="tweetInfo">Tweets</span>
-                <span className="tweetInfo tweetCount" />
-              </div>
-            </div>
+            <UserrInfo name={this.state.name} leng={this.state.items.length} />
             <div className="mainView">
               <textarea placeholder="what's happening?" className="textBox" ref={(input) => this.newItem = input} value={this.state.text} onChange={this.handleInputText} />
               <div className="textInfo">
@@ -111,8 +107,8 @@ class Tweet extends React.Component {
             </div>
             {/* <AddTweet onCreate = {this.handleAddTweet}/> */}
             <ul className="tweetContain">
-              { this.state.items.map((tweet, name) => (
-                <li key={name}>{tweet.textValue}</li>
+              { this.state.items.map((tweet) => (
+                <li key={tweet.name}>{tweet.textValue}</li>
               ))}
             </ul>
           </div>
