@@ -1,8 +1,13 @@
-h1 {
+.Signup-page {
+  h1 {
     text-align: center;
     font-size: 3.5rem;
-}
-.signInputID, .signInputName, .signInputPw, .signInputProfile, .signUpBtn {
+  }
+  .signInputID,
+  .signInputName,
+  .signInputPw,
+  .signInputProfile,
+  .signUpBtn {
     display: block;
     margin: 0 auto;
     width: 50%;
@@ -11,18 +16,19 @@ h1 {
     font-size: 1.5rem;
     border: none;
     border-bottom: solid 3px gray;
-    background-color: whitesmoke
-}
-.noti {
+    background-color: whitesmoke;
+  }
+  .noti {
     width: 50%;
     margin: 0 auto;
     color: red;
-}
-.signUpBtn  {
+  }
+  .signUpBtn {
     border-radius: 40px;
-     border: 1px;
-     color: white;
-     background-color: gray;
-     font-size: 2rem;
-     padding: 10px;
+    border: 1px;
+    color: white;
+    background-color: gray;
+    font-size: 2rem;
+    padding: 10px;
+  }
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import './tweet.scss';
-import { isTemplateElement, thisTypeAnnotation } from '@babel/types';
-import AddTweet from './component/AddTweet';
+// import AddTweet from './AddTweet';
 
 // import { ReactComponent } from '*.svg';
 
@@ -48,81 +47,77 @@ import AddTweet from './component/AddTweet';
 //         )
 //     }
 // }
-
 class Tweet extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            text: '',
-            items: [
-            ]
-        }
-    }
-    
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: '',
+      items: [
+      ],
+    };
+  }
+
+
     handleInputText = (e) => {
-        this.setState({
-            text: e.target.value,
-        })
-        
+      this.setState({
+        text: e.target.value,
+      });
     }
 
     handleCreate = (data) => {
-        // console.log(data)
-        // console.log(this.state.text)
-        // const {tweet} = this.state;
-        // this.state.items.push({id: 0, name: '', textValue: this.state.text})
-        // // this.state.items.concat({id:0, name:'', textValue: this.state.text})
-        // this.setState({
-        //     items: this.state.items
-        // })
-        // console.log(this.state.items)
+      // console.log(data)
+      // console.log(this.state.text)
+      // const {tweet} = this.state;
+      // this.state.items.push({id: 0, name: '', textValue: this.state.text})
+      // // this.state.items.concat({id:0, name:'', textValue: this.state.text})
+      // this.setState({
+      //     items: this.state.items
+      // })
+      // console.log(this.state.items)
     }
 
     handleAddTweet = (e) => {
-        
-    this.state.items.push({id: 0, name: '', textValue: this.state.text})
-    this.setState({
-          items: this.state.items
-        })
-    this.setState({
-          text: ''
-        })
-    // this.state.items.text = '';
-        console.log(this.state.items)
+      this.state.items.push({ id: 0, name: '', textValue: this.state.text });
+      this.setState({
+        items: this.state.items,
+        text: '',
+      });
+    //     console.log(this.state.items)
     }
-    
+
     render() {
-        // const {items} = this.state.item; 
-        // console.log(items)
-        return(
-            <div id="contain">
+      // const {items} = this.state.item;
+      // console.log(items)
+
+
+      return (
+        <div className="Tweet-page">
+          <div id="contain">
             <div className="sideView">
-              <div className="emptyDiv"></div>
+              <div className="emptyDiv" />
               <div className="tweetInfoBox">
                 <div className="tweetInfo userName">SeongHo Yang</div>
                 <span className="tweetInfo">Tweets</span>
-                <span className="tweetInfo tweetCount"></span>
+                <span className="tweetInfo tweetCount" />
               </div>
             </div>
             <div className="mainView">
-              <textarea placeholder="what's happening?" className="textBox"  ref = {input => this.newItem = input} value = {this.state.text} onChange = {this.handleInputText}></textarea>
+              <textarea placeholder="what's happening?" className="textBox" ref={(input) => this.newItem = input} value={this.state.text} onChange={this.handleInputText} />
               <div className="textInfo">
-                <span className="curTextLength"></span>
-                <span className="maxTextLength"></span>
+                <span className="curTextLength" />
+                <span className="maxTextLength" />
               </div>
-              <input type="button" ref ={ input => this.clear = input} value="Tweet" className="addTweetButton" onClick = {this.handleAddTweet}/>
+              <input type="button" ref={(input) => this.clear = input} value="Tweet" className="addTweetButton" onClick={this.handleAddTweet} />
             </div>
             {/* <AddTweet onCreate = {this.handleAddTweet}/> */}
             <ul className="tweetContain">
-               { this.state.items.map( (tweet, name) => {
-                    return (
-                        <li key = {name}>{tweet.textValue}</li>
-                    )
-                })
-                }
+              { this.state.items.map((tweet, name) => (
+                <li key={name}>{tweet.textValue}</li>
+              ))}
             </ul>
           </div>
-        )
+        </div>
+      );
     }
 }
 

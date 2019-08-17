@@ -1,22 +1,23 @@
-#contain {
+.Tweet-page {
+  #contain {
     position: absolute;
     padding: 20px 10px;
     background-color: aliceblue;
-    width:100%;
+    width: 100%;
     height: 100%;
   }
   .sideView {
     /* background-color: aliceblue; */
-    float:left;
+    float: left;
     height: 100%;
     width: 40%;
     overflow: hidden;
   }
   .emptyDiv {
-  width: 100%;
-  height: 100px;
-  margin: 0;
-  background-color: blueviolet;
+    width: 100%;
+    height: 100px;
+    margin: 0;
+    background-color: blueviolet;
   }
   .tweetInfoBox {
     background-color: white;
@@ -38,19 +39,19 @@
   }
   .mainView {
     background-color: lightblue;
-    float:right;
+    float: right;
     padding: 10px;
     /* position:relative; */
     /* margin:60px; */
     width: 50%;
-    left:75%;
-    height:150px;
+    left: 75%;
+    height: 150px;
   }
   .textBox {
     padding: 10px;
     width: 93%;
     height: 100px;
-    font-weight:bold;
+    font-weight: bold;
     border-radius: 10px;
     border: solid skyblue;
   }
@@ -58,14 +59,15 @@
     position: absolute;
     left: 77%;
   }
-  .curTextLength, .maxTextLength {
-   margin-left: 20px;
+  .curTextLength,
+  .maxTextLength {
+    margin-left: 20px;
   }
   .addTweetButton {
     /* position:absolute; */
-    float:right;
-    margin:0 0 0 0;
-    right:100%;
+    float: right;
+    margin: 0 0 0 0;
+    right: 100%;
     border-radius: 10px;
     border: 1px;
     background-color: deepskyblue;
@@ -82,16 +84,16 @@
     float: right;
     top: 15%;
     left: 75%;
-    width:50%;
+    width: 50%;
   }
-  
+
   h5 {
     margin: 0;
   }
-  
   li {
     list-style: none;
     padding: 10px;
     margin: 5px 0;
     background-color: beige;
   }
+}

@@ -1,12 +1,8 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from 'react-router-dom';
-import Tweet from './Tweet'
-import Login from './Login';
-import Signup from './Signup';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Tweet from './page/tweet/Tweet';
+import Login from './page/login/Login';
+import Signup from './page/signup/Signup';
 
 class Routes extends React.Component {
   render() {
@@ -18,7 +14,7 @@ class Routes extends React.Component {
           <Route exact path="/signup" component={Signup} />
         </Switch>
       </Router>
-    )
+    );
   }
 }
 
