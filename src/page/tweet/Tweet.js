@@ -1,6 +1,7 @@
 import React from 'react';
 import './tweet.scss';
 // import '../../component/UserInfo';
+import Button from '../../component/Button';
 import UserrInfo from '../../component/UserInfo';
 // import AddTweet from './AddTweet';
 
@@ -55,6 +56,7 @@ class Tweet extends React.Component {
     this.state = {
       name: 'Seongho Yang',
       text: '',
+      maxInputText: 150,
       items: [
       ],
     };
@@ -62,10 +64,24 @@ class Tweet extends React.Component {
 
 
     handleInputText = (e) => {
-      this.setState({
-        text: e.target.value,
-      });
+      if (this.state.text.length <= this.state.maxInputText) {
+        this.setState({
+          text: e.target.value,
+        });
+      } else if (this.state.text === this.state.maxInputText) {
+        this.setState({
+          text: e.target.value.slice(0, this.stae.maxInputText),
+        });
+      }
     }
+
+    // handleInputMaxText = (e) => {
+    //   if (this.state.text.legnth <= this.state.maxInputText) {
+    //     this.setState({
+    //       text: e.target.value,
+    //     });
+    //   }
+    // }
 
     // handleCreate = (data) => {
     //   // console.log(data)
@@ -98,19 +114,36 @@ class Tweet extends React.Component {
           <div id="contain">
             <UserrInfo name={this.state.name} leng={this.state.items.length} />
             <div className="mainView">
-              <textarea placeholder="what's happening?" className="textBox" ref={(input) => this.newItem = input} value={this.state.text} onChange={this.handleInputText} />
-              <div className="textInfo">
-                <span className="curTextLength" />
-                <span className="maxTextLength" />
+              <div className="mainView2">
+                <textarea
+                  maxLength="150"
+                  placeholder="what's happening?"
+                  className="textBox"
+                  ref={(input) => this.newItem = input}
+                  value={this.state.text}
+
+                  onChange={this.handleInputText}
+                />
+                <div className="textInfo">
+                  <span className="curTextLength">{this.state.text.length}</span>
+                  <span className="maxTextLength">{this.state.maxInputText}</span>
+                </div>
+                <Button
+                  type="submit"
+                  name="Tweet"
+                  ref={(input) => this.clear = input}
+                  value="Tweet"
+                  className="addTweetButton"
+                  onClick={this.handleAddTweet}
+                />
+                {/* <AddTweet onCreate = {this.handleAddTweet}/> */}
+                <ul className="tweetContain">
+                  { this.state.items.map((tweet) => (
+                    <li key={tweet.name}>{tweet.textValue}</li>
+                  ))}
+                </ul>
               </div>
-              <input type="button" ref={(input) => this.clear = input} value="Tweet" className="addTweetButton" onClick={this.handleAddTweet} />
             </div>
-            {/* <AddTweet onCreate = {this.handleAddTweet}/> */}
-            <ul className="tweetContain">
-              { this.state.items.map((tweet) => (
-                <li key={tweet.name}>{tweet.textValue}</li>
-              ))}
-            </ul>
           </div>
         </div>
       );
