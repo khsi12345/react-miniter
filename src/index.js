@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
+import './style/App.scss';
+import Routes from './Routes';
 // import App from './App';
 // import * as serviceWorker from './serviceWorker';
 // import Signup from './component/signup/Signup';
-import Routes from './Routes'
 
 ReactDOM.render(<Routes />, document.getElementById('root'));
 

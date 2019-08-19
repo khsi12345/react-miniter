@@ -1,3 +1,6 @@
+@mixin background($color) {
+  background-color: $color;
+}
 .App {
   text-align: center;
 }

@@ -8,6 +8,7 @@ class Button extends React.Component {
         className={this.props.className}
         value={this.props.value}
         style={this.props.style}
+        onClick={this.props.onClick}
       >{this.props.name}
       </button>
     );
